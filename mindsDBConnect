@@ -1,0 +1,23 @@
+import mindsdb_sdk as mdb
+
+# Connect to MindsDB
+mdb.connect("https://cloud.mindsdb.com", "YOUR_MINDSDB_EMAIL", "YOUR_MINDSDB_PASSWORD")
+
+# Select the data source
+connection = mdb.create_datasource(
+    name='budget_data',
+    engine='mysql',
+    connection_args={
+        'user': 'YOUR_DB_USER',
+        'password': 'YOUR_DB_PASSWORD',
+        'host': 'YOUR_DB_HOST',
+        'database': 'YOUR_DB_NAME'
+    }
+)
+
+# Create the model
+model = mdb.create_predictor(
+    name='budget_advisor',
+    datasource='budget_data',
+    target='Budgeting Goal'
+)
