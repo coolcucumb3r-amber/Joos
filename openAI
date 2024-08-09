@@ -1,0 +1,23 @@
+import openai
+
+openai.api_key = 'YOUR_OPENAI_API_KEY'
+
+def generate_advice(spending_pattern, history, goal):
+    # Predict budgeting advice using MindsDB
+    prediction = model.predict({
+        'Spending Pattern': spending_pattern,
+        'Historical Data': history
+    })
+    
+    # Use OpenAI to generate detailed advice
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=f"A user with {spending_pattern} and historical data {history} wants to {goal}. Provide detailed budgeting advice.",
+        max_tokens=150
+    )
+    
+    return response['choices'][0]['text'].strip()
+
+# Example usage
+advice = generate_advice("High Discretional Spender", "[Jan: $3000, Feb: $3200]", "Save 20%")
+print(advice)
