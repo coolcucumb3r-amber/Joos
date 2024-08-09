@@ -21,3 +21,8 @@ model = mdb.create_predictor(
     datasource='budget_data',
     target='Budgeting Goal'
 )
+model.train(
+    select='Spending Pattern, Historical Data',
+    target='Budgeting Goal',
+    name='budget_advisor'
+)
