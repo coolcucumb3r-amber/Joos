@@ -1,0 +1,2 @@
+# Joos
+AI Budgeting Assistant
