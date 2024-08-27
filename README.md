@@ -1,2 +1,2 @@
 # Joos
-AI Personal finance Assistant
+AI Personal Finance Assistant
